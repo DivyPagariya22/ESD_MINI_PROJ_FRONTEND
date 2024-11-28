@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 const Signup = () => {
@@ -16,6 +17,7 @@ const Signup = () => {
   const [courses, setCourses] = useState([]);
   const [error, setError] = useState("");
   const [selectedCourses, setSelectedCourses] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch available courses
@@ -123,6 +125,7 @@ const Signup = () => {
       });
       alert("Registration successful");
       console.log("Registration successful:", response.data);
+      navigate('/');
     } catch (error) {
       console.error("Error during registration:", error);
       alert("Registration failed");

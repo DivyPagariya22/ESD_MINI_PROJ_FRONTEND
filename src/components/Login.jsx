@@ -18,9 +18,6 @@ const Login = () => {
 
       if (response.status === 200) {
         console.log('Token => ', response.data);
-        if(response.data === "Wrong Password or Email") {
-
-        }
         localStorage.setItem('jwtToken', response.data);
         navigate('/profile');
       } else {
